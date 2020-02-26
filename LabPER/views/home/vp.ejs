@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Home Page</title>
+</head>
+<body>
+	<div>
+		<h1>User List</h1> 		
+	</div>
+
+	<a href="/home"> Back</a> |
+	<a href="/logout"> logout</a><br>
+	
+	<input type="text" name="" id="myInput" placeholder="name..." onkeyup="searchFun()"> <br> <br>
+
+	<table id="customers" border="1">
+		<tr>
+			<td>ID</td>
+			<td>product</td>
+			<td>quantity</td>
+
+			<td>price</td>
+			
+			
+			
+			<td>Action</td>
+		</tr>
+		<% for(var i=0; i < userlist.length; i++){ %>
+		<tr>
+			<td><%= userlist[i].id %></td>
+			<td><%= userlist[i].product_name %></td>
+			<td><%= userlist[i].quantity %></td>
+			<td><%= userlist[i].price %></td>
+			
+			<td>
+				<a href="/home/ep/<%= userlist[i].id %>">EDIT</a> | 
+				<a href="/home/dp/<%= userlist[i].id %>">DELETE</a>  
+			</td>
+		</tr>
+		<% } %>
+    </table>
+    <script>
+		function searchFun(){
+			let filter = document.getElementById('myInput').value.toUpperCase();
+			
+			let myTable=document.getElementById('customers');
+			
+			let tr=myTable.getElementsByTagName('tr');
+			
+			for(var i=0; i<tr.length;i++){
+				let td = tr[i].getElementsByTagName('td')[1];
+				
+				if(td){
+					let textvalue= td.textContent||td.innerHTML;
+					if(textvalue.toUpperCase().indexOf(filter)>-1){
+						tr[i].style.display="";
+						
+					}else{
+						
+						tr[i].style.display="none";
+						//alert("Not found!");
+					}
+					
+				}
+				
+				
+			}
+			
+			
+		}
+		</script>
+</body>
+</html>

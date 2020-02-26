@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Edit page</title>
+</head>
+<body>
+	<div>
+		<h1>Edit Info</h1> 		
+	</div>
+
+	<a href="/home/vp"> Back to List</a> |
+	<a href="/logout"> logout</a><br>
+
+	<form method="post">
+		<table>
+			<tr>
+				<td>Id</td>
+				<td><input type="text" readonly name="id" value="<%=user.id%>"></td>
+			</tr>
+			<tr>
+				<td>Productname</td>
+				<td><input type="text" name="product_name" value="<%=user.product_name%>"></td>
+			</tr>
+			<tr>
+				<td>Quantity :</td>
+				<td><input type="text" name="quantity" value="<%=user.quantity%>"></td>
+			</tr>
+			<tr>
+				<td>Price :</td>
+				<td><input type="password" name="price" value="<%=user.price%>"></td>
+			</tr>
+			
+				<td></td>
+				<td><input type="submit" name="submit" value="Update"></td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>
